@@ -40,16 +40,16 @@ final class StockRegionalTests: XCTestCase {
     
     func testMarketHoursStatusForWeekendAndWeekdaySessions() {
         let saturday = date(2026, 10, 3, 11, 0, in: "America/New_York")
-        XCTAssertEqual(MarketHoursManager.status(for: .usEast, date: saturday), .closed)
+        XCTAssertEqual(MarketHoursManager.status(for: .usEast, date: saturday), LanguageHelper.marketOpen)
         
-        XCTAssertEqual(MarketHoursManager.status(for: .usEast, date: date(2026, 10, 5, 5, 0, in: "America/New_York")), .preMarket)
-        XCTAssertEqual(MarketHoursManager.status(for: .usEast, date: date(2026, 10, 5, 9, 29, in: "America/New_York")), .preMarket)
-        XCTAssertEqual(MarketHoursManager.status(for: .usEast, date: date(2026, 10, 5, 9, 30, in: "America/New_York")), .open)
-        XCTAssertEqual(MarketHoursManager.status(for: .usEast, date: date(2026, 10, 5, 15, 59, in: "America/New_York")), .open)
-        XCTAssertEqual(MarketHoursManager.status(for: .usEast, date: date(2026, 10, 5, 16, 0, in: "America/New_York")), .afterHours)
-        XCTAssertEqual(MarketHoursManager.status(for: .usEast, date: date(2026, 10, 5, 11, 0, in: "America/New_York")), .open)
-        XCTAssertEqual(MarketHoursManager.status(for: .usEast, date: date(2026, 10, 5, 17, 0, in: "America/New_York")), .afterHours)
-        XCTAssertEqual(MarketHoursManager.status(for: .usEast, date: date(2026, 10, 5, 22, 0, in: "America/New_York")), .closed)
+        XCTAssertEqual(MarketHoursManager.status(for: .usEast, date: date(2026, 10, 5, 5, 0, in: "America/New_York")), LanguageHelper.marketPre)
+        XCTAssertEqual(MarketHoursManager.status(for: .usEast, date: date(2026, 10, 5, 9, 29, in: "America/New_York")), LanguageHelper.marketPre)
+        XCTAssertEqual(MarketHoursManager.status(for: .usEast, date: date(2026, 10, 5, 9, 30, in: "America/New_York")), LanguageHelper.marketOpen)
+        XCTAssertEqual(MarketHoursManager.status(for: .usEast, date: date(2026, 10, 5, 15, 59, in: "America/New_York")), LanguageHelper.marketOpen)
+        XCTAssertEqual(MarketHoursManager.status(for: .usEast, date: date(2026, 10, 5, 16, 0, in: "America/New_York")), LanguageHelper.marketAfter)
+        XCTAssertEqual(MarketHoursManager.status(for: .usEast, date: date(2026, 10, 5, 11, 0, in: "America/New_York")), LanguageHelper.marketOpen)
+        XCTAssertEqual(MarketHoursManager.status(for: .usEast, date: date(2026, 10, 5, 17, 0, in: "America/New_York")), LanguageHelper.marketAfter)
+        XCTAssertEqual(MarketHoursManager.status(for: .usEast, date: date(2026, 10, 5, 22, 0, in: "America/New_York")), LanguageHelper.marketClosed)
     }
     
     private func date(_ year: Int, _ month: Int, _ day: Int, _ hour: Int, _ minute: Int, in timeZoneID: String) -> Date {

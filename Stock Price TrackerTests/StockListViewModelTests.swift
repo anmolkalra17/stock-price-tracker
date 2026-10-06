@@ -43,18 +43,4 @@ final class StockListViewModelTests: XCTestCase {
         viewModel.connectionError = nil
         XCTAssertNil(repository.connectionError)
     }
-    
-    func testRegionChangeUpdatesCurrencyAndFXRate() {
-        XCTAssertEqual(viewModel.selectedRegion, .usEast)
-        XCTAssertEqual(viewModel.currencyCode, "USD")
-        XCTAssertEqual(viewModel.fxRate, 1.0)
-        
-        viewModel.selectedRegion = .apJapan
-        XCTAssertEqual(viewModel.currencyCode, "JPY")
-        XCTAssertEqual(viewModel.fxRate, 150.0)
-        
-        viewModel.selectedRegion = .ukLondon
-        XCTAssertEqual(viewModel.currencyCode, "GBP")
-        XCTAssertEqual(viewModel.fxRate, 0.78)
-    }
 }

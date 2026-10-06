@@ -12,9 +12,9 @@ import Foundation
 @MainActor
 final class MockStockRepository: StockRepositoryProtocol {
     var stocks: [Stock] = [
-        Stock(id: "AAPL", symbol: "AAPL", companyName: "Apple Inc.", currentPrice: 100.0, priceChange: 1.0, symbolDescription: "Apple"),
-        Stock(id: "NVDA", symbol: "NVDA", companyName: "NVIDIA Corporation", currentPrice: 200.0, priceChange: -5.0, symbolDescription: "NVIDIA"),
-        Stock(id: "TSLA", symbol: "TSLA", companyName: "Tesla, Inc.", currentPrice: 50.0, priceChange: 3.0, symbolDescription: "Tesla")
+        Stock(id: "AAPL", symbol: "AAPL", companyName: "Apple Inc.", currentPrice: 100.0, priceChange: 1.0, symbolDescription: LanguageHelper.description_AAPL),
+        Stock(id: "NVDA", symbol: "NVDA", companyName: "NVIDIA Corporation", currentPrice: 200.0, priceChange: -5.0, symbolDescription: LanguageHelper.description_NVDA),
+        Stock(id: "TSLA", symbol: "TSLA", companyName: "Tesla, Inc.", currentPrice: 50.0, priceChange: 3.0, symbolDescription: LanguageHelper.description_TSLA)
     ]
     var connectionState: ConnectionState = .disconnected
     var selectedRegion: AppRegion = .usEast
