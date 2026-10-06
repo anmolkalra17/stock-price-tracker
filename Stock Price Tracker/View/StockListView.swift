@@ -20,24 +20,35 @@ struct StockListView: View {
         NavigationStack {
             VStack(spacing: 12) {
                 HStack {
+                    TimelineView(.periodic(from: .now, by: 60)) { context in
+                        Text(MarketHoursManager.status(for: viewModel.selectedRegion, date: context.date))
+                            .font(.caption2)
+                            .padding(.horizontal, 8)
+                            .padding(.vertical, 4)
+                            .background(Color.secondary.opacity(0.15))
+                            .cornerRadius(6)
+                    }
+                    
+                    Spacer()
+                    
                     HStack(spacing: 8) {
                         Circle()
                             .fill(connectionColor)
                             .frame(width: 10, height: 10)
                         
-                        Text(viewModel.connectionState.rawValue)
+                        Text(connectionStatus)
                             .font(.caption)
                             .foregroundColor(.secondary)
                     }
                     .accessibilityElement(children: .combine)
-                    .accessibilityLabel("Feed status: \(viewModel.connectionState.rawValue)")
+                    .accessibilityLabel(feedStatusLabel)
                     
                     Spacer()
                     
                     Button(action: {
                         viewModel.toggleFeed()
                     }) {
-                        Text(viewModel.connectionState == .connected ? "Stop Feed" : "Start Feed")
+                        Text(viewModel.connectionState == .connected ? LanguageHelper.stopFeedTitle : LanguageHelper.startFeedTitle)
                             .font(.footnote)
                             .fontWeight(.semibold)
                             .padding(.horizontal, 12)
@@ -50,31 +61,9 @@ struct StockListView: View {
                 .padding(.horizontal)
                 .padding(.top, 4)
                 
-                HStack {
-                    Picker("Region", selection: $viewModel.selectedRegion) {
-                        ForEach(AppRegion.allCases) { region in
-                            Text(region.rawValue).tag(region)
-                        }
-                    }
-                    .pickerStyle(MenuPickerStyle())
-                    .dynamicTypeSize(.xSmall ... .xLarge)
-                    
-                    Spacer()
-                    
-                    TimelineView(.periodic(from: .now, by: 60)) { context in
-                        Text(MarketHoursManager.status(for: viewModel.selectedRegion, date: context.date).rawValue)
-                            .font(.caption2)
-                            .padding(.horizontal, 8)
-                            .padding(.vertical, 4)
-                            .background(Color.secondary.opacity(0.15))
-                            .cornerRadius(6)
-                    }
-                }
-                .padding(.horizontal)
-                
-                Picker("Sort by", selection: $viewModel.selectedSortOption) {
+                Picker(LanguageHelper.sortPickerTitle, selection: $viewModel.selectedSortOption) {
                     ForEach(SortOption.allCases) { option in
-                        Text(option.rawValue).tag(option)
+                        Text(option.localized).tag(option)
                     }
                 }
                 .pickerStyle(SegmentedPickerStyle())
@@ -94,12 +83,12 @@ struct StockListView: View {
                     StockDetailView(viewModel: StockDetailViewModel(symbol: symbol, repository: repository))
                 }
             }
-            .navigationTitle("Stocks")
-            .alert("Connection Failed", isPresented: Binding(
+            .navigationTitle(LanguageHelper.stocksAppTitle)
+            .alert(LanguageHelper.connectionFailedError, isPresented: Binding(
                 get: { viewModel.connectionError != nil },
                 set: { if !$0 { viewModel.connectionError = nil } }
             )) {
-                Button("OK", role: .cancel) { }
+                Button(LanguageHelper.ok, role: .cancel) { }
             } message: {
                 Text(viewModel.connectionError ?? "")
             }
@@ -111,6 +100,22 @@ struct StockListView: View {
         case .connected: return .green
         case .disconnected: return .red
         case .connecting: return .yellow
+        }
+    }
+    
+    //  MARK: - Localization Strings
+    private var feedStatusLabel: String {
+        return "\(LanguageHelper.feedStatusAccessibility)".replacingOccurrences(of: "%@", with: viewModel.connectionState.rawValue)
+    }
+    
+    private var connectionStatus: String {
+        switch viewModel.connectionState {
+        case .connected:
+            return LanguageHelper.connected
+        case .disconnected:
+            return LanguageHelper.disconnected
+        case .connecting:
+            return LanguageHelper.connecting
         }
     }
 }

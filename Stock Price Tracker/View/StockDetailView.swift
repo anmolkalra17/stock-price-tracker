@@ -38,7 +38,7 @@ struct StockDetailView: View {
                 .cornerRadius(12)
                 
                 VStack(alignment: .leading, spacing: 8) {
-                    Text("About")
+                    Text(LanguageHelper.about)
                         .font(.title2)
                         .fontWeight(.bold)
                     

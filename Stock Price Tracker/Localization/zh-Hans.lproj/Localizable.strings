@@ -1,0 +1,158 @@
+/* Localizable.strings (zh-Hans) - Stock Price Tracker */
+/* Review all non-English strings with a native speaker before release. */
+
+/* Navigation title of list screen (StockListView) */
+"stocks.title" = "股票";
+
+/* VoiceOver label for connection indicator. %@ = localized connection state */
+"feed.status.accessibility" = "数据源状态：%@";
+
+/* Button title to start the price feed */
+"feed.start" = "启动数据源";
+
+/* Button title to stop the price feed */
+"feed.stop" = "停止数据源";
+
+/* Region picker label */
+"region.picker.title" = "地区";
+
+/* Sort picker label */
+"sort.picker.title" = "排序方式";
+
+/* SortOption.price */
+"sort.price" = "价格";
+
+/* SortOption.priceChange */
+"sort.priceChange" = "价格变动";
+
+/* ConnectionState.connected */
+"connection.connected" = "已连接";
+
+/* ConnectionState.disconnected */
+"connection.disconnected" = "已断开";
+
+/* ConnectionState.connecting */
+"connection.connecting" = "正在连接…";
+
+/* Alert title shown when the socket fails */
+"error.connectionFailed.title" = "连接失败";
+
+/* Alert dismiss button */
+"common.ok" = "好";
+
+/* MarketStatus.open */
+"market.open" = "开市";
+
+/* MarketStatus.closed */
+"market.closed" = "休市";
+
+/* MarketStatus.preMarket */
+"market.preMarket" = "盘前";
+
+/* MarketStatus.afterHours */
+"market.afterHours" = "盘后";
+
+/* AppRegion.usEast display name */
+"region.usEast" = "美国（NYSE）";
+
+/* AppRegion.euCentral display name */
+"region.euCentral" = "德国（法兰克福 - XETRA）";
+
+/* AppRegion.apJapan display name */
+"region.apJapan" = "日本（东京 - TSE）";
+
+/* AppRegion.apIndia display name */
+"region.apIndia" = "印度（孟买 - NSE）";
+
+/* AppRegion.meUAE display name */
+"region.meUAE" = "阿联酋（迪拜 - DFM）";
+
+/* AppRegion.apChina display name */
+"region.apChina" = "中国（上海 - SSE）";
+
+/* AppRegion.ukLondon display name */
+"region.ukLondon" = "英国（伦敦 - LSE）";
+
+/* Section header on detail screen */
+"detail.about" = "简介";
+
+/* Fallback description when symbol is unknown (StockDetailViewModel) */
+"detail.noDetails" = "暂无详细信息。";
+
+/* VoiceOver label for price badge. %1$@ = formatted price, %2$@ = formatted change */
+"price.accessibility" = "价格 %1$@，变动 %2$@";
+
+/* Description for AAPL (StockRepository+FakeData.swift) */
+"stock.AAPL.description" = "苹果公司设计、制造并销售智能手机、个人电脑、平板电脑、可穿戴设备及配件。";
+
+/* Description for NVDA (StockRepository+FakeData.swift) */
+"stock.NVDA.description" = "英伟达公司设计面向游戏和专业市场的图形处理器，以及用于移动计算的片上系统。";
+
+/* Description for GOOG (StockRepository+FakeData.swift) */
+"stock.GOOG.description" = "Alphabet公司提供网络搜索、云计算、流媒体娱乐和硬件产品。";
+
+/* Description for AMZN (StockRepository+FakeData.swift) */
+"stock.AMZN.description" = "亚马逊公司专注于电子商务、云计算、在线广告、数字流媒体和人工智能。";
+
+/* Description for MSFT (StockRepository+FakeData.swift) */
+"stock.MSFT.description" = "微软开发并支持软件、服务、设备和解决方案。";
+
+/* Description for TSLA (StockRepository+FakeData.swift) */
+"stock.TSLA.description" = "特斯拉公司设计并制造电动汽车、太阳能电池板和储能设备。";
+
+/* Description for META (StockRepository+FakeData.swift) */
+"stock.META.description" = "Meta Platforms开发的产品让人们可以通过移动设备和个人电脑进行连接与分享。";
+
+/* Description for NFLX (StockRepository+FakeData.swift) */
+"stock.NFLX.description" = "奈飞公司提供订阅制流媒体娱乐服务。";
+
+/* Description for AMD (StockRepository+FakeData.swift) */
+"stock.AMD.description" = "AMD设计用于计算机处理的半导体器件。";
+
+/* Description for INTC (StockRepository+FakeData.swift) */
+"stock.INTC.description" = "英特尔公司设计并制造微处理器和芯片组组件。";
+
+/* Description for CRM (StockRepository+FakeData.swift) */
+"stock.CRM.description" = "Salesforce提供企业级云计算解决方案。";
+
+/* Description for PYPL (StockRepository+FakeData.swift) */
+"stock.PYPL.description" = "PayPal运营覆盖全球的在线支付系统。";
+
+/* Description for UBER (StockRepository+FakeData.swift) */
+"stock.UBER.description" = "优步提供网约车、餐饮配送和货运服务。";
+
+/* Description for ABNB (StockRepository+FakeData.swift) */
+"stock.ABNB.description" = "爱彼迎运营住宿和旅游活动的在线交易平台。";
+
+/* Description for ORCL (StockRepository+FakeData.swift) */
+"stock.ORCL.description" = "甲骨文提供数据库软件、云系统和企业软件。";
+
+/* Description for CSCO (StockRepository+FakeData.swift) */
+"stock.CSCO.description" = "思科开发并销售网络硬件和软件产品。";
+
+/* Description for ADBE (StockRepository+FakeData.swift) */
+"stock.ADBE.description" = "Adobe提供数字媒体和营销软件产品。";
+
+/* Description for DIS (StockRepository+FakeData.swift) */
+"stock.DIS.description" = "华特迪士尼公司是一家业务遍及全球的多元化娱乐公司。";
+
+/* Description for NKE (StockRepository+FakeData.swift) */
+"stock.NKE.description" = "耐克设计、营销并销售运动鞋、服装和器材。";
+
+/* Description for SBUX (StockRepository+FakeData.swift) */
+"stock.SBUX.description" = "星巴克是全球领先的精品咖啡烘焙商和零售商。";
+
+/* Description for IBM (StockRepository+FakeData.swift) */
+"stock.IBM.description" = "IBM提供云平台和认知解决方案。";
+
+/* Description for QCOM (StockRepository+FakeData.swift) */
+"stock.QCOM.description" = "高通设计并销售无线通信产品。";
+
+/* Description for TXN (StockRepository+FakeData.swift) */
+"stock.TXN.description" = "德州仪器设计并制造半导体。";
+
+/* Description for BAC (StockRepository+FakeData.swift) */
+"stock.BAC.description" = "美国银行提供银行和金融服务。";
+
+/* Description for JPM (StockRepository+FakeData.swift) */
+"stock.JPM.description" = "摩根大通是一家金融服务公司和银行机构。";

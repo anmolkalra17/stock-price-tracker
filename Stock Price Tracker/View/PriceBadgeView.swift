@@ -41,7 +41,7 @@ struct PriceBadgeView: View {
             .cornerRadius(4)
         }
         .accessibilityElement(children: .ignore)
-        .accessibilityLabel("Price \(RegionalFormatter.formatPrice(price, currencyCode: currencyCode)), change \(RegionalFormatter.formatChange(change, currencyCode: currencyCode))")
+        .accessibilityLabel(priceAccessibilityLabel)
         .padding(4)
         .background(flashColor)
         .cornerRadius(6)
@@ -55,5 +55,16 @@ struct PriceBadgeView: View {
                 }
             }
         }
+    }
+    
+    private var priceAccessibilityLabel: String {
+        let price = RegionalFormatter.formatPrice(price, currencyCode: currencyCode)
+        let change = RegionalFormatter.formatChange(change, currencyCode: currencyCode)
+        
+        var local = LanguageHelper.priceAccessibility
+        local = local.replacingOccurrences(of: "%1$@", with: price)
+        local = local.replacingOccurrences(of: "%2$@", with: change)
+        
+        return local
     }
 }

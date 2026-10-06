@@ -12,7 +12,7 @@ import Observation
 protocol StockRepositoryProtocol: AnyObject {
     var stocks: [Stock] { get }
     var connectionState: ConnectionState { get }
-    var selectedRegion: AppRegion { get set }
+    var selectedRegion: AppRegion { get }
     var connectionError: String? { get set }
     
     func startFeed() async
@@ -23,7 +23,6 @@ protocol StockRepositoryProtocol: AnyObject {
 @Observable
 @MainActor
 final class StockRepository: StockRepositoryProtocol {
-    var selectedRegion: AppRegion = .usEast
     private(set) var stocks: [Stock] = StockRepository.seedData
     private(set) var connectionState: ConnectionState = .disconnected
     var connectionError: String?
@@ -32,6 +31,11 @@ final class StockRepository: StockRepositoryProtocol {
     private let session = URLSession(configuration: .default)
     private var updateTask: Task<Void, Never>?
     private let url = URL(string: "wss://ws.postman-echo.com/raw")!
+    
+    var selectedRegion: AppRegion {
+        let langCode = Locale.autoupdatingCurrent.language.languageCode?.identifier
+        return AppRegion(languageCode: langCode) ?? .usEast
+    }
     
     func startFeed() async {
         guard connectionState == .disconnected else { return }

@@ -1,0 +1,158 @@
+/* Localizable.strings (hi) - Stock Price Tracker */
+/* Review all non-English strings with a native speaker before release. */
+
+/* Navigation title of list screen (StockListView) */
+"stocks.title" = "स्टॉक";
+
+/* VoiceOver label for connection indicator. %@ = localized connection state */
+"feed.status.accessibility" = "फ़ीड की स्थिति: %@";
+
+/* Button title to start the price feed */
+"feed.start" = "फ़ीड शुरू करें";
+
+/* Button title to stop the price feed */
+"feed.stop" = "फ़ीड रोकें";
+
+/* Region picker label */
+"region.picker.title" = "क्षेत्र";
+
+/* Sort picker label */
+"sort.picker.title" = "क्रमबद्ध करें";
+
+/* SortOption.price */
+"sort.price" = "कीमत";
+
+/* SortOption.priceChange */
+"sort.priceChange" = "कीमत में बदलाव";
+
+/* ConnectionState.connected */
+"connection.connected" = "कनेक्टेड";
+
+/* ConnectionState.disconnected */
+"connection.disconnected" = "डिस्कनेक्टेड";
+
+/* ConnectionState.connecting */
+"connection.connecting" = "कनेक्ट हो रहा है…";
+
+/* Alert title shown when the socket fails */
+"error.connectionFailed.title" = "कनेक्शन विफल रहा";
+
+/* Alert dismiss button */
+"common.ok" = "ठीक है";
+
+/* MarketStatus.open */
+"market.open" = "बाज़ार खुला";
+
+/* MarketStatus.closed */
+"market.closed" = "बाज़ार बंद";
+
+/* MarketStatus.preMarket */
+"market.preMarket" = "प्री-मार्केट";
+
+/* MarketStatus.afterHours */
+"market.afterHours" = "आफ़्टर-ऑवर्स";
+
+/* AppRegion.usEast display name */
+"region.usEast" = "संयुक्त राज्य अमेरिका (NYSE)";
+
+/* AppRegion.euCentral display name */
+"region.euCentral" = "जर्मनी (फ़्रैंकफ़र्ट - XETRA)";
+
+/* AppRegion.apJapan display name */
+"region.apJapan" = "जापान (टोक्यो - TSE)";
+
+/* AppRegion.apIndia display name */
+"region.apIndia" = "भारत (मुंबई - NSE)";
+
+/* AppRegion.meUAE display name */
+"region.meUAE" = "यूएई (दुबई - DFM)";
+
+/* AppRegion.apChina display name */
+"region.apChina" = "चीन (शंघाई - SSE)";
+
+/* AppRegion.ukLondon display name */
+"region.ukLondon" = "यूनाइटेड किंगडम (लंदन - LSE)";
+
+/* Section header on detail screen */
+"detail.about" = "परिचय";
+
+/* Fallback description when symbol is unknown (StockDetailViewModel) */
+"detail.noDetails" = "कोई विवरण उपलब्ध नहीं है।";
+
+/* VoiceOver label for price badge. %1$@ = formatted price, %2$@ = formatted change */
+"price.accessibility" = "कीमत %1$@, बदलाव %2$@";
+
+/* Description for AAPL (StockRepository+FakeData.swift) */
+"stock.AAPL.description" = "Apple Inc. स्मार्टफ़ोन, पर्सनल कंप्यूटर, टैबलेट, पहनने योग्य डिवाइस और एक्सेसरीज़ डिज़ाइन, निर्माण और विपणन करती है।";
+
+/* Description for NVDA (StockRepository+FakeData.swift) */
+"stock.NVDA.description" = "NVIDIA Corporation गेमिंग और प्रोफ़ेशनल बाज़ारों के लिए ग्राफ़िक्स प्रोसेसिंग यूनिट, तथा मोबाइल कंप्यूटिंग के लिए सिस्टम-ऑन-चिप डिज़ाइन करती है।";
+
+/* Description for GOOG (StockRepository+FakeData.swift) */
+"stock.GOOG.description" = "Alphabet Inc. वेब-आधारित सर्च, क्लाउड कंप्यूटिंग, स्ट्रीमिंग मनोरंजन और हार्डवेयर उत्पाद प्रदान करती है।";
+
+/* Description for AMZN (StockRepository+FakeData.swift) */
+"stock.AMZN.description" = "Amazon.com, Inc. ई-कॉमर्स, क्लाउड कंप्यूटिंग, ऑनलाइन विज्ञापन, डिजिटल स्ट्रीमिंग और AI पर केंद्रित है।";
+
+/* Description for MSFT (StockRepository+FakeData.swift) */
+"stock.MSFT.description" = "Microsoft सॉफ़्टवेयर, सेवाएँ, डिवाइस और समाधान विकसित करती है और उनका समर्थन करती है।";
+
+/* Description for TSLA (StockRepository+FakeData.swift) */
+"stock.TSLA.description" = "Tesla, Inc. इलेक्ट्रिक वाहन, सोलर पैनल और ऊर्जा भंडारण उपकरण डिज़ाइन और निर्माण करती है।";
+
+/* Description for META (StockRepository+FakeData.swift) */
+"stock.META.description" = "Meta Platforms ऐसे उत्पाद विकसित करती है जिनसे लोग मोबाइल डिवाइस और पर्सनल कंप्यूटर के माध्यम से जुड़ और साझा कर सकते हैं।";
+
+/* Description for NFLX (StockRepository+FakeData.swift) */
+"stock.NFLX.description" = "Netflix, Inc. सब्सक्रिप्शन-आधारित स्ट्रीमिंग मनोरंजन सेवा प्रदान करती है।";
+
+/* Description for AMD (StockRepository+FakeData.swift) */
+"stock.AMD.description" = "AMD कंप्यूटर प्रोसेसिंग में उपयोग होने वाले सेमीकंडक्टर डिवाइस डिज़ाइन करती है।";
+
+/* Description for INTC (StockRepository+FakeData.swift) */
+"stock.INTC.description" = "Intel Corporation माइक्रोप्रोसेसर और चिपसेट घटक डिज़ाइन और निर्माण करती है।";
+
+/* Description for CRM (StockRepository+FakeData.swift) */
+"stock.CRM.description" = "Salesforce एंटरप्राइज़ क्लाउड कंप्यूटिंग समाधान प्रदान करती है।";
+
+/* Description for PYPL (StockRepository+FakeData.swift) */
+"stock.PYPL.description" = "PayPal दुनिया भर में एक ऑनलाइन भुगतान प्रणाली संचालित करती है।";
+
+/* Description for UBER (StockRepository+FakeData.swift) */
+"stock.UBER.description" = "Uber राइड-हेलिंग, फ़ूड डिलीवरी और माल परिवहन सेवाएँ प्रदान करती है।";
+
+/* Description for ABNB (StockRepository+FakeData.swift) */
+"stock.ABNB.description" = "Airbnb ठहरने और पर्यटन गतिविधियों के लिए एक ऑनलाइन मार्केटप्लेस संचालित करती है।";
+
+/* Description for ORCL (StockRepository+FakeData.swift) */
+"stock.ORCL.description" = "Oracle डेटाबेस सॉफ़्टवेयर, क्लाउड सिस्टम और एंटरप्राइज़ सॉफ़्टवेयर प्रदान करती है।";
+
+/* Description for CSCO (StockRepository+FakeData.swift) */
+"stock.CSCO.description" = "Cisco नेटवर्किंग हार्डवेयर और सॉफ़्टवेयर उत्पाद विकसित और बेचती है।";
+
+/* Description for ADBE (StockRepository+FakeData.swift) */
+"stock.ADBE.description" = "Adobe डिजिटल मीडिया और मार्केटिंग सॉफ़्टवेयर उत्पाद प्रदान करती है।";
+
+/* Description for DIS (StockRepository+FakeData.swift) */
+"stock.DIS.description" = "The Walt Disney Company दुनिया भर में फैली एक विविध मनोरंजन कंपनी है।";
+
+/* Description for NKE (StockRepository+FakeData.swift) */
+"stock.NKE.description" = "Nike एथलेटिक जूते, परिधान और उपकरण डिज़ाइन, विपणन और बिक्री करती है।";
+
+/* Description for SBUX (StockRepository+FakeData.swift) */
+"stock.SBUX.description" = "Starbucks दुनिया भर में विशेष कॉफ़ी की प्रमुख रोस्टर और खुदरा विक्रेता है।";
+
+/* Description for IBM (StockRepository+FakeData.swift) */
+"stock.IBM.description" = "IBM क्लाउड प्लेटफ़ॉर्म और कॉग्निटिव समाधान प्रदान करती है।";
+
+/* Description for QCOM (StockRepository+FakeData.swift) */
+"stock.QCOM.description" = "Qualcomm वायरलेस दूरसंचार उत्पाद डिज़ाइन और विपणन करती है।";
+
+/* Description for TXN (StockRepository+FakeData.swift) */
+"stock.TXN.description" = "Texas Instruments सेमीकंडक्टर डिज़ाइन और निर्माण करती है।";
+
+/* Description for BAC (StockRepository+FakeData.swift) */
+"stock.BAC.description" = "Bank of America बैंकिंग और वित्तीय सेवाएँ प्रदान करती है।";
+
+/* Description for JPM (StockRepository+FakeData.swift) */
+"stock.JPM.description" = "JPMorgan Chase एक वित्तीय सेवा कंपनी और बैंकिंग संस्था है।";

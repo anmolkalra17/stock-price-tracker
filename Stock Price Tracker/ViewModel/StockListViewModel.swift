@@ -16,7 +16,6 @@ final class StockListViewModel {
     
     var selectedRegion: AppRegion {
         get { repository.selectedRegion }
-        set { repository.selectedRegion = newValue }
     }
     
     var connectionError: String? {

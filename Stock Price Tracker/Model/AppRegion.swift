@@ -54,6 +54,20 @@ enum AppRegion: String, CaseIterable, Identifiable {
         case .ukLondon: return "Europe/London"
         }
     }
+    
+    init?(languageCode: String?) {
+        guard let code = languageCode?.lowercased() else { return nil }
+        
+        switch code {
+        case "en": self = .usEast
+        case "de": self = .euCentral
+        case "ja": self = .apJapan
+        case "hi", "en-IN": self = .apIndia
+        case "ar": self = .meUAE
+        case "zh": self = .apChina
+        default:   return nil
+        }
+    }
 }
 
 // MARK: - Market Status -
@@ -68,16 +82,20 @@ enum MarketStatus: String {
 // MARK: - Market Hours Manager -
 
 struct MarketHoursManager {
-    public static func status(for region: AppRegion, date: Date = Date()) -> MarketStatus {
+    public static func status(for region: AppRegion, date: Date = Date()) -> String {
         var calendar = Calendar(identifier: .gregorian)
+        
+        var status: MarketStatus
+        
         guard let timeZone = TimeZone(identifier: region.timeZoneIdentifier) else {
-            return .closed
+            status = .closed
+            return LanguageHelper.marketClosed
         }
         calendar.timeZone = timeZone
         
         let weekday = calendar.component(.weekday, from: date)
         if weekday == 1 || weekday == 7 { // Weekend
-            return .closed
+            status = .closed
         }
         
         let hour = calendar.component(.hour, from: date)
@@ -86,19 +104,30 @@ struct MarketHoursManager {
         
         switch region {
         case .usEast:
-            return evaluateHours(minutes: totalMinutes, open: 570, close: 960, pre: 240, post: 1200)
+            status = evaluateHours(minutes: totalMinutes, open: 570, close: 960, pre: 240, post: 1200)
         case .euCentral:
-            return evaluateHours(minutes: totalMinutes, open: 540, close: 1050, pre: 480, post: 1200)
+            status = evaluateHours(minutes: totalMinutes, open: 540, close: 1050, pre: 480, post: 1200)
         case .apJapan:
-            return evaluateHours(minutes: totalMinutes, open: 540, close: 930, pre: 480, post: 1080)
+            status = evaluateHours(minutes: totalMinutes, open: 540, close: 930, pre: 480, post: 1080)
         case .apIndia:
-            return evaluateHours(minutes: totalMinutes, open: 555, close: 930, pre: 540, post: 960)
+            status = evaluateHours(minutes: totalMinutes, open: 555, close: 930, pre: 540, post: 960)
         case .meUAE:
-            return evaluateHours(minutes: totalMinutes, open: 600, close: 900, pre: 570, post: 930)
+            status = evaluateHours(minutes: totalMinutes, open: 600, close: 900, pre: 570, post: 930)
         case .apChina:
-            return evaluateHours(minutes: totalMinutes, open: 570, close: 900, pre: 540, post: 930)
+            status = evaluateHours(minutes: totalMinutes, open: 570, close: 900, pre: 540, post: 930)
         case .ukLondon:
-            return evaluateHours(minutes: totalMinutes, open: 480, close: 990, pre: 420, post: 1050)
+            status = evaluateHours(minutes: totalMinutes, open: 480, close: 990, pre: 420, post: 1050)
+        }
+        
+        switch status {
+        case .open:
+            return LanguageHelper.marketOpen
+        case .closed:
+            return LanguageHelper.marketClosed
+        case .preMarket:
+            return LanguageHelper.marketPre
+        case .afterHours:
+            return LanguageHelper.marketAfter
         }
     }
     

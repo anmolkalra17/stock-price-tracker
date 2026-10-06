@@ -1,0 +1,158 @@
+/* Localizable.strings (en) - Stock Price Tracker */
+/* Review all non-English strings with a native speaker before release. */
+
+/* Navigation title of list screen (StockListView) */
+"stocks.title" = "Stocks";
+
+/* VoiceOver label for connection indicator. %@ = localized connection state */
+"feed.status.accessibility" = "Feed status: %@";
+
+/* Button title to start the price feed */
+"feed.start" = "Start Feed";
+
+/* Button title to stop the price feed */
+"feed.stop" = "Stop Feed";
+
+/* Region picker label */
+"region.picker.title" = "Region";
+
+/* Sort picker label */
+"sort.picker.title" = "Sort by";
+
+/* SortOption.price */
+"sort.price" = "Price";
+
+/* SortOption.priceChange */
+"sort.priceChange" = "Price Change";
+
+/* ConnectionState.connected */
+"connection.connected" = "Connected";
+
+/* ConnectionState.disconnected */
+"connection.disconnected" = "Disconnected";
+
+/* ConnectionState.connecting */
+"connection.connecting" = "Connecting...";
+
+/* Alert title shown when the socket fails */
+"error.connectionFailed.title" = "Connection Failed";
+
+/* Alert dismiss button */
+"common.ok" = "OK";
+
+/* MarketStatus.open */
+"market.open" = "Market Open";
+
+/* MarketStatus.closed */
+"market.closed" = "Market Closed";
+
+/* MarketStatus.preMarket */
+"market.preMarket" = "Pre-Market";
+
+/* MarketStatus.afterHours */
+"market.afterHours" = "After-Hours";
+
+/* AppRegion.usEast display name */
+"region.usEast" = "United States (NYSE)";
+
+/* AppRegion.euCentral display name */
+"region.euCentral" = "Germany (Frankfurt - XETRA)";
+
+/* AppRegion.apJapan display name */
+"region.apJapan" = "Japan (Tokyo - TSE)";
+
+/* AppRegion.apIndia display name */
+"region.apIndia" = "India (Mumbai - NSE)";
+
+/* AppRegion.meUAE display name */
+"region.meUAE" = "UAE (Dubai - DFM)";
+
+/* AppRegion.apChina display name */
+"region.apChina" = "China (Shanghai - SSE)";
+
+/* AppRegion.ukLondon display name */
+"region.ukLondon" = "United Kingdom (London - LSE)";
+
+/* Section header on detail screen */
+"detail.about" = "About";
+
+/* Fallback description when symbol is unknown (StockDetailViewModel) */
+"detail.noDetails" = "No details available.";
+
+/* VoiceOver label for price badge. %1$@ = formatted price, %2$@ = formatted change */
+"price.accessibility" = "Price %1$@, change %2$@";
+
+/* Description for AAPL (StockRepository+FakeData.swift) */
+"stock.AAPL.description" = "Apple Inc. designs, manufactures, and markets smartphones, personal computers, tablets, wearables, and accessories.";
+
+/* Description for NVDA (StockRepository+FakeData.swift) */
+"stock.NVDA.description" = "NVIDIA Corporation designs graphics processing units for gaming and professional markets, as well as system on a chip units for mobile computing.";
+
+/* Description for GOOG (StockRepository+FakeData.swift) */
+"stock.GOOG.description" = "Alphabet Inc. offers web-based search, cloud computing, streaming entertainment, and hardware products.";
+
+/* Description for AMZN (StockRepository+FakeData.swift) */
+"stock.AMZN.description" = "Amazon.com, Inc. focuses on e-commerce, cloud computing, online advertising, digital streaming, and AI.";
+
+/* Description for MSFT (StockRepository+FakeData.swift) */
+"stock.MSFT.description" = "Microsoft develops and supports software, services, devices and solutions.";
+
+/* Description for TSLA (StockRepository+FakeData.swift) */
+"stock.TSLA.description" = "Tesla, Inc. designs and manufactures electric vehicles, solar panels, and energy storage devices.";
+
+/* Description for META (StockRepository+FakeData.swift) */
+"stock.META.description" = "Meta Platforms develops products that enable people to connect and share through mobile devices and personal computers.";
+
+/* Description for NFLX (StockRepository+FakeData.swift) */
+"stock.NFLX.description" = "Netflix, Inc. provides subscription streaming entertainment service.";
+
+/* Description for AMD (StockRepository+FakeData.swift) */
+"stock.AMD.description" = "AMD designs semiconductor devices used in computer processing.";
+
+/* Description for INTC (StockRepository+FakeData.swift) */
+"stock.INTC.description" = "Intel Corporation designs and manufactures microprocessors and chipset components.";
+
+/* Description for CRM (StockRepository+FakeData.swift) */
+"stock.CRM.description" = "Salesforce provides enterprise cloud computing solutions.";
+
+/* Description for PYPL (StockRepository+FakeData.swift) */
+"stock.PYPL.description" = "PayPal operates an online payments system operating worldwide.";
+
+/* Description for UBER (StockRepository+FakeData.swift) */
+"stock.UBER.description" = "Uber offers ride-hailing, food delivery, and freight transportation.";
+
+/* Description for ABNB (StockRepository+FakeData.swift) */
+"stock.ABNB.description" = "Airbnb operates an online marketplace for lodging and tourism activities.";
+
+/* Description for ORCL (StockRepository+FakeData.swift) */
+"stock.ORCL.description" = "Oracle provides database software, cloud systems, and enterprise software.";
+
+/* Description for CSCO (StockRepository+FakeData.swift) */
+"stock.CSCO.description" = "Cisco develops and sells networking hardware and software products.";
+
+/* Description for ADBE (StockRepository+FakeData.swift) */
+"stock.ADBE.description" = "Adobe offers digital media and marketing software products.";
+
+/* Description for DIS (StockRepository+FakeData.swift) */
+"stock.DIS.description" = "The Walt Disney Company is a diversified worldwide entertainment company.";
+
+/* Description for NKE (StockRepository+FakeData.swift) */
+"stock.NKE.description" = "Nike designs, markets, and sells athletic footwear, apparel, and equipment.";
+
+/* Description for SBUX (StockRepository+FakeData.swift) */
+"stock.SBUX.description" = "Starbucks is the premier roaster and retailer of specialty coffee worldwide.";
+
+/* Description for IBM (StockRepository+FakeData.swift) */
+"stock.IBM.description" = "IBM offers cloud platform and cognitive solutions.";
+
+/* Description for QCOM (StockRepository+FakeData.swift) */
+"stock.QCOM.description" = "Qualcomm designs and markets wireless telecommunications products.";
+
+/* Description for TXN (StockRepository+FakeData.swift) */
+"stock.TXN.description" = "Texas Instruments designs and manufactures semiconductors.";
+
+/* Description for BAC (StockRepository+FakeData.swift) */
+"stock.BAC.description" = "Bank of America provides banking and financial services.";
+
+/* Description for JPM (StockRepository+FakeData.swift) */
+"stock.JPM.description" = "JPMorgan Chase is a financial services firm and banking institution.";

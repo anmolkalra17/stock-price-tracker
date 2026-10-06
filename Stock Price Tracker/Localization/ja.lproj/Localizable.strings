@@ -1,0 +1,158 @@
+/* Localizable.strings (ja) - Stock Price Tracker */
+/* Review all non-English strings with a native speaker before release. */
+
+/* Navigation title of list screen (StockListView) */
+"stocks.title" = "銘柄";
+
+/* VoiceOver label for connection indicator. %@ = localized connection state */
+"feed.status.accessibility" = "フィードの状態: %@";
+
+/* Button title to start the price feed */
+"feed.start" = "フィードを開始";
+
+/* Button title to stop the price feed */
+"feed.stop" = "フィードを停止";
+
+/* Region picker label */
+"region.picker.title" = "地域";
+
+/* Sort picker label */
+"sort.picker.title" = "並べ替え";
+
+/* SortOption.price */
+"sort.price" = "価格";
+
+/* SortOption.priceChange */
+"sort.priceChange" = "価格変動";
+
+/* ConnectionState.connected */
+"connection.connected" = "接続済み";
+
+/* ConnectionState.disconnected */
+"connection.disconnected" = "切断";
+
+/* ConnectionState.connecting */
+"connection.connecting" = "接続中…";
+
+/* Alert title shown when the socket fails */
+"error.connectionFailed.title" = "接続に失敗しました";
+
+/* Alert dismiss button */
+"common.ok" = "OK";
+
+/* MarketStatus.open */
+"market.open" = "取引中";
+
+/* MarketStatus.closed */
+"market.closed" = "取引終了";
+
+/* MarketStatus.preMarket */
+"market.preMarket" = "寄り付き前";
+
+/* MarketStatus.afterHours */
+"market.afterHours" = "時間外取引";
+
+/* AppRegion.usEast display name */
+"region.usEast" = "アメリカ（NYSE）";
+
+/* AppRegion.euCentral display name */
+"region.euCentral" = "ドイツ（フランクフルト - XETRA）";
+
+/* AppRegion.apJapan display name */
+"region.apJapan" = "日本（東京 - TSE）";
+
+/* AppRegion.apIndia display name */
+"region.apIndia" = "インド（ムンバイ - NSE）";
+
+/* AppRegion.meUAE display name */
+"region.meUAE" = "UAE（ドバイ - DFM）";
+
+/* AppRegion.apChina display name */
+"region.apChina" = "中国（上海 - SSE）";
+
+/* AppRegion.ukLondon display name */
+"region.ukLondon" = "イギリス（ロンドン - LSE）";
+
+/* Section header on detail screen */
+"detail.about" = "概要";
+
+/* Fallback description when symbol is unknown (StockDetailViewModel) */
+"detail.noDetails" = "詳細情報はありません。";
+
+/* VoiceOver label for price badge. %1$@ = formatted price, %2$@ = formatted change */
+"price.accessibility" = "価格 %1$@、変動 %2$@";
+
+/* Description for AAPL (StockRepository+FakeData.swift) */
+"stock.AAPL.description" = "Apple Inc.は、スマートフォン、パソコン、タブレット、ウェアラブル、アクセサリを設計・製造・販売しています。";
+
+/* Description for NVDA (StockRepository+FakeData.swift) */
+"stock.NVDA.description" = "NVIDIA Corporationは、ゲーム用およびプロフェッショナル向けのグラフィックス処理装置と、モバイルコンピューティング向けのシステムオンチップを設計しています。";
+
+/* Description for GOOG (StockRepository+FakeData.swift) */
+"stock.GOOG.description" = "Alphabet Inc.は、ウェブ検索、クラウドコンピューティング、ストリーミングエンターテインメント、ハードウェア製品を提供しています。";
+
+/* Description for AMZN (StockRepository+FakeData.swift) */
+"stock.AMZN.description" = "Amazon.com, Inc.は、Eコマース、クラウドコンピューティング、オンライン広告、デジタルストリーミング、AIを中心に事業を展開しています。";
+
+/* Description for MSFT (StockRepository+FakeData.swift) */
+"stock.MSFT.description" = "Microsoftは、ソフトウェア、サービス、デバイス、ソリューションを開発・サポートしています。";
+
+/* Description for TSLA (StockRepository+FakeData.swift) */
+"stock.TSLA.description" = "Tesla, Inc.は、電気自動車、太陽光パネル、エネルギー貯蔵装置を設計・製造しています。";
+
+/* Description for META (StockRepository+FakeData.swift) */
+"stock.META.description" = "Meta Platformsは、モバイルデバイスやパソコンを通じて人々がつながり、共有できる製品を開発しています。";
+
+/* Description for NFLX (StockRepository+FakeData.swift) */
+"stock.NFLX.description" = "Netflix, Inc.は、定額制のストリーミングエンターテインメントサービスを提供しています。";
+
+/* Description for AMD (StockRepository+FakeData.swift) */
+"stock.AMD.description" = "AMDは、コンピューターの処理に使用される半導体デバイスを設計しています。";
+
+/* Description for INTC (StockRepository+FakeData.swift) */
+"stock.INTC.description" = "Intel Corporationは、マイクロプロセッサとチップセット部品を設計・製造しています。";
+
+/* Description for CRM (StockRepository+FakeData.swift) */
+"stock.CRM.description" = "Salesforceは、企業向けクラウドコンピューティングソリューションを提供しています。";
+
+/* Description for PYPL (StockRepository+FakeData.swift) */
+"stock.PYPL.description" = "PayPalは、世界中でオンライン決済システムを運営しています。";
+
+/* Description for UBER (StockRepository+FakeData.swift) */
+"stock.UBER.description" = "Uberは、ライドシェア、フードデリバリー、貨物輸送サービスを提供しています。";
+
+/* Description for ABNB (StockRepository+FakeData.swift) */
+"stock.ABNB.description" = "Airbnbは、宿泊や観光アクティビティのオンラインマーケットプレイスを運営しています。";
+
+/* Description for ORCL (StockRepository+FakeData.swift) */
+"stock.ORCL.description" = "Oracleは、データベースソフトウェア、クラウドシステム、企業向けソフトウェアを提供しています。";
+
+/* Description for CSCO (StockRepository+FakeData.swift) */
+"stock.CSCO.description" = "Ciscoは、ネットワーク機器とソフトウェア製品を開発・販売しています。";
+
+/* Description for ADBE (StockRepository+FakeData.swift) */
+"stock.ADBE.description" = "Adobeは、デジタルメディアおよびマーケティング向けのソフトウェア製品を提供しています。";
+
+/* Description for DIS (StockRepository+FakeData.swift) */
+"stock.DIS.description" = "The Walt Disney Companyは、世界的に事業を展開する総合エンターテインメント企業です。";
+
+/* Description for NKE (StockRepository+FakeData.swift) */
+"stock.NKE.description" = "Nikeは、スポーツシューズ、アパレル、用具を設計・販売しています。";
+
+/* Description for SBUX (StockRepository+FakeData.swift) */
+"stock.SBUX.description" = "Starbucksは、世界有数のスペシャルティコーヒーの焙煎・小売企業です。";
+
+/* Description for IBM (StockRepository+FakeData.swift) */
+"stock.IBM.description" = "IBMは、クラウドプラットフォームとコグニティブソリューションを提供しています。";
+
+/* Description for QCOM (StockRepository+FakeData.swift) */
+"stock.QCOM.description" = "Qualcommは、無線通信関連製品を設計・販売しています。";
+
+/* Description for TXN (StockRepository+FakeData.swift) */
+"stock.TXN.description" = "Texas Instrumentsは、半導体を設計・製造しています。";
+
+/* Description for BAC (StockRepository+FakeData.swift) */
+"stock.BAC.description" = "Bank of Americaは、銀行および金融サービスを提供しています。";
+
+/* Description for JPM (StockRepository+FakeData.swift) */
+"stock.JPM.description" = "JPMorgan Chaseは、金融サービス会社であり、銀行機関です。";

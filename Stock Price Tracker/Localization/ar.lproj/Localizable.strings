@@ -1,0 +1,158 @@
+/* Localizable.strings (ar) - Stock Price Tracker */
+/* Review all non-English strings with a native speaker before release. */
+
+/* Navigation title of list screen (StockListView) */
+"stocks.title" = "الأسهم";
+
+/* VoiceOver label for connection indicator. %@ = localized connection state */
+"feed.status.accessibility" = "حالة البث: %@";
+
+/* Button title to start the price feed */
+"feed.start" = "بدء البث";
+
+/* Button title to stop the price feed */
+"feed.stop" = "إيقاف البث";
+
+/* Region picker label */
+"region.picker.title" = "المنطقة";
+
+/* Sort picker label */
+"sort.picker.title" = "ترتيب حسب";
+
+/* SortOption.price */
+"sort.price" = "السعر";
+
+/* SortOption.priceChange */
+"sort.priceChange" = "تغيّر السعر";
+
+/* ConnectionState.connected */
+"connection.connected" = "متصل";
+
+/* ConnectionState.disconnected */
+"connection.disconnected" = "غير متصل";
+
+/* ConnectionState.connecting */
+"connection.connecting" = "جارٍ الاتصال…";
+
+/* Alert title shown when the socket fails */
+"error.connectionFailed.title" = "فشل الاتصال";
+
+/* Alert dismiss button */
+"common.ok" = "حسنًا";
+
+/* MarketStatus.open */
+"market.open" = "السوق مفتوح";
+
+/* MarketStatus.closed */
+"market.closed" = "السوق مغلق";
+
+/* MarketStatus.preMarket */
+"market.preMarket" = "ما قبل افتتاح السوق";
+
+/* MarketStatus.afterHours */
+"market.afterHours" = "ما بعد إغلاق السوق";
+
+/* AppRegion.usEast display name */
+"region.usEast" = "الولايات المتحدة (NYSE)";
+
+/* AppRegion.euCentral display name */
+"region.euCentral" = "ألمانيا (فرانكفورت - XETRA)";
+
+/* AppRegion.apJapan display name */
+"region.apJapan" = "اليابان (طوكيو - TSE)";
+
+/* AppRegion.apIndia display name */
+"region.apIndia" = "الهند (مومباي - NSE)";
+
+/* AppRegion.meUAE display name */
+"region.meUAE" = "الإمارات (دبي - DFM)";
+
+/* AppRegion.apChina display name */
+"region.apChina" = "الصين (شنغهاي - SSE)";
+
+/* AppRegion.ukLondon display name */
+"region.ukLondon" = "المملكة المتحدة (لندن - LSE)";
+
+/* Section header on detail screen */
+"detail.about" = "نبذة";
+
+/* Fallback description when symbol is unknown (StockDetailViewModel) */
+"detail.noDetails" = "لا تتوفر تفاصيل.";
+
+/* VoiceOver label for price badge. %1$@ = formatted price, %2$@ = formatted change */
+"price.accessibility" = "السعر %1$@، التغيّر %2$@";
+
+/* Description for AAPL (StockRepository+FakeData.swift) */
+"stock.AAPL.description" = "تقوم شركة Apple بتصميم وتصنيع وتسويق الهواتف الذكية وأجهزة الكمبيوتر الشخصية والأجهزة اللوحية والأجهزة القابلة للارتداء والملحقات.";
+
+/* Description for NVDA (StockRepository+FakeData.swift) */
+"stock.NVDA.description" = "تصمم شركة NVIDIA وحدات معالجة الرسومات لسوق الألعاب والسوق المهني، إضافةً إلى أنظمة على شريحة للحوسبة المتنقلة.";
+
+/* Description for GOOG (StockRepository+FakeData.swift) */
+"stock.GOOG.description" = "تقدّم شركة Alphabet خدمات البحث عبر الويب والحوسبة السحابية والترفيه عبر البث ومنتجات الأجهزة.";
+
+/* Description for AMZN (StockRepository+FakeData.swift) */
+"stock.AMZN.description" = "تركّز شركة Amazon على التجارة الإلكترونية والحوسبة السحابية والإعلانات عبر الإنترنت والبث الرقمي والذكاء الاصطناعي.";
+
+/* Description for MSFT (StockRepository+FakeData.swift) */
+"stock.MSFT.description" = "تطوّر شركة Microsoft البرمجيات والخدمات والأجهزة والحلول وتدعمها.";
+
+/* Description for TSLA (StockRepository+FakeData.swift) */
+"stock.TSLA.description" = "تصمم شركة Tesla وتصنّع السيارات الكهربائية والألواح الشمسية وأجهزة تخزين الطاقة.";
+
+/* Description for META (StockRepository+FakeData.swift) */
+"stock.META.description" = "تطوّر شركة Meta Platforms منتجات تتيح للناس التواصل والمشاركة عبر الأجهزة المحمولة وأجهزة الكمبيوتر الشخصية.";
+
+/* Description for NFLX (StockRepository+FakeData.swift) */
+"stock.NFLX.description" = "تقدّم شركة Netflix خدمة ترفيه عبر البث بنظام الاشتراك.";
+
+/* Description for AMD (StockRepository+FakeData.swift) */
+"stock.AMD.description" = "تصمم شركة AMD أجهزة أشباه الموصلات المستخدمة في معالجة الحاسوب.";
+
+/* Description for INTC (StockRepository+FakeData.swift) */
+"stock.INTC.description" = "تصمم شركة Intel وتصنّع المعالجات الدقيقة ومكونات مجموعات الرقاقات.";
+
+/* Description for CRM (StockRepository+FakeData.swift) */
+"stock.CRM.description" = "تقدّم شركة Salesforce حلول الحوسبة السحابية للمؤسسات.";
+
+/* Description for PYPL (StockRepository+FakeData.swift) */
+"stock.PYPL.description" = "تشغّل شركة PayPal نظام مدفوعات عبر الإنترنت يعمل في أنحاء العالم.";
+
+/* Description for UBER (StockRepository+FakeData.swift) */
+"stock.UBER.description" = "تقدّم شركة Uber خدمات النقل التشاركي وتوصيل الطعام ونقل البضائع.";
+
+/* Description for ABNB (StockRepository+FakeData.swift) */
+"stock.ABNB.description" = "تدير شركة Airbnb سوقًا إلكترونية للإقامة والأنشطة السياحية.";
+
+/* Description for ORCL (StockRepository+FakeData.swift) */
+"stock.ORCL.description" = "تقدّم شركة Oracle برمجيات قواعد البيانات والأنظمة السحابية وبرمجيات المؤسسات.";
+
+/* Description for CSCO (StockRepository+FakeData.swift) */
+"stock.CSCO.description" = "تطوّر شركة Cisco وتبيع معدات وبرمجيات الشبكات.";
+
+/* Description for ADBE (StockRepository+FakeData.swift) */
+"stock.ADBE.description" = "تقدّم شركة Adobe منتجات برمجية للوسائط الرقمية والتسويق.";
+
+/* Description for DIS (StockRepository+FakeData.swift) */
+"stock.DIS.description" = "شركة والت ديزني هي شركة ترفيه متنوعة تعمل في أنحاء العالم.";
+
+/* Description for NKE (StockRepository+FakeData.swift) */
+"stock.NKE.description" = "تصمم شركة Nike الأحذية والملابس والمعدات الرياضية وتسوّقها وتبيعها.";
+
+/* Description for SBUX (StockRepository+FakeData.swift) */
+"stock.SBUX.description" = "ستاربكس هي شركة رائدة عالميًا في تحميص القهوة المختصة وبيعها بالتجزئة.";
+
+/* Description for IBM (StockRepository+FakeData.swift) */
+"stock.IBM.description" = "تقدّم شركة IBM منصات سحابية وحلولًا معرفية.";
+
+/* Description for QCOM (StockRepository+FakeData.swift) */
+"stock.QCOM.description" = "تصمم شركة Qualcomm منتجات الاتصالات اللاسلكية وتسوّقها.";
+
+/* Description for TXN (StockRepository+FakeData.swift) */
+"stock.TXN.description" = "تصمم شركة Texas Instruments أشباه الموصلات وتصنّعها.";
+
+/* Description for BAC (StockRepository+FakeData.swift) */
+"stock.BAC.description" = "يقدّم Bank of America الخدمات المصرفية والمالية.";
+
+/* Description for JPM (StockRepository+FakeData.swift) */
+"stock.JPM.description" = "جيه بي مورغان تشيس مؤسسة خدمات مالية ومصرفية.";
