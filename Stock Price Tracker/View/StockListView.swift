@@ -57,6 +57,7 @@ struct StockListView: View {
                         }
                     }
                     .pickerStyle(MenuPickerStyle())
+                    .dynamicTypeSize(.xSmall ... .xLarge)
                     
                     Spacer()
                     

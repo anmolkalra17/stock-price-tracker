@@ -19,7 +19,7 @@ struct PriceBadgeView: View {
     var body: some View {
         VStack(spacing: 8) {
             Text(RegionalFormatter.formatPrice(price, currencyCode: currencyCode))
-                .font(.system(.body, design: .monospaced))
+                .font(.system(.body))
                 .fontWeight(.bold)
                 .lineLimit(1)
                 .fixedSize(horizontal: true, vertical: false)
@@ -30,7 +30,7 @@ struct PriceBadgeView: View {
                     .font(.system(size: 8))
                 
                 Text(RegionalFormatter.formatChange(change, currencyCode: currencyCode))
-                    .font(.system(.caption, design: .monospaced))
+                    .font(.system(.caption))
                     .fontWeight(.semibold)
                     .lineLimit(1)
             }
