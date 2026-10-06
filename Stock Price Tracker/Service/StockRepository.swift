@@ -27,7 +27,7 @@ final class StockRepository: StockRepositoryProtocol {
     private(set) var connectionState: ConnectionState = .disconnected
     var connectionError: String?
     
-    private var webSocketTask: URLSessionWebSocketTask?
+    private var webSocketTask: WebSocketConnection?
     private let session = URLSession(configuration: .default)
     private var updateTask: Task<Void, Never>?
     private let url = URL(string: "wss://ws.postman-echo.com/raw")!
@@ -37,12 +37,21 @@ final class StockRepository: StockRepositoryProtocol {
         return AppRegion(languageCode: langCode) ?? .usEast
     }
     
+    private let webSocketFactory: ((URL) -> WebSocketConnection)?
+    private let priceUpdateProvider: (([Stock]) -> PriceUpdateMessage?)?
+    
+    init(webSocketFactory: ((URL) -> WebSocketConnection)? = nil,
+         priceUpdateProvider: (([Stock]) -> PriceUpdateMessage?)? = nil) {
+        self.webSocketFactory = webSocketFactory
+        self.priceUpdateProvider = priceUpdateProvider
+    }
+    
     func startFeed() async {
         guard connectionState == .disconnected else { return }
         connectionError = nil
         connectionState = .connecting
         
-        let task = session.webSocketTask(with: url)
+        let task: WebSocketConnection = webSocketFactory?(url) ?? session.webSocketTask(with: url)
         webSocketTask = task
         task.resume()
         connectionState = .connected
@@ -65,7 +74,7 @@ final class StockRepository: StockRepositoryProtocol {
     
     // MARK: - Private Methods -
     
-    private func listenWebSocket(on task: URLSessionWebSocketTask) {
+    private func listenWebSocket(on task: WebSocketConnection) {
         Task { [weak self] in
             do {
                 let message = try await task.receive()
@@ -92,7 +101,7 @@ final class StockRepository: StockRepositoryProtocol {
         }
     }
     
-    private func handleSocketFailure(_ error: Error, on task: URLSessionWebSocketTask) {
+    private func handleSocketFailure(_ error: Error, on task: WebSocketConnection) {
         guard webSocketTask === task else { return }
         stopFeed()
         connectionError = error.localizedDescription
@@ -109,6 +118,16 @@ final class StockRepository: StockRepositoryProtocol {
         }
     }
     
+    private func makePriceUpdate() -> PriceUpdateMessage? {
+        if let priceUpdateProvider { return priceUpdateProvider(stocks) }
+        guard let randomStock = stocks.randomElement() else { return nil }
+        
+        let priceDelta = Double.random(in: -3.0...3.0)
+        let newPrice = max(1.0, randomStock.currentPrice + priceDelta)
+        
+        return PriceUpdateMessage(symbol: randomStock.symbol, price: newPrice, timestamp: Date())
+    }
+    
     private func startSimulatingUpdates() {
         updateTask?.cancel()
         updateTask = Task { [weak self] in
@@ -117,12 +136,8 @@ final class StockRepository: StockRepositoryProtocol {
                 
                 guard let self, !Task.isCancelled,
                       self.connectionState == .connected,
-                      let randomStock = self.stocks.randomElement() else { break }
+                      let update = self.makePriceUpdate() else { break }
                 
-                let priceDelta = Double.random(in: -3.0...3.0)
-                let newPrice = max(1.0, randomStock.currentPrice + priceDelta)
-                
-                let update = PriceUpdateMessage(symbol: randomStock.symbol, price: newPrice, timestamp: Date())
                 if let encoder = try? JSONEncoder().encode(update),
                    let jsonString = String(data: encoder, encoding: .utf8) {
                     guard let socket = self.webSocketTask else { break }
