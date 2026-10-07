@@ -10,7 +10,7 @@ import SwiftUI
 @main
 struct Stock_Price_TrackerApp: App {
     
-    @State private var repo = StockRepository()
+    @State private var repo = StockRepository(networkMonitor: NetworkMonitor.instance)
     
     var body: some Scene {
         WindowGroup {

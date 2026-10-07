@@ -7,6 +7,7 @@
 
 import Foundation
 import Observation
+import Network
 
 @MainActor
 protocol StockRepositoryProtocol: AnyObject {
@@ -22,14 +23,15 @@ protocol StockRepositoryProtocol: AnyObject {
 
 @Observable
 @MainActor
-final class StockRepository: StockRepositoryProtocol {
+final class StockRepository: NSObject, StockRepositoryProtocol {
     private(set) var stocks: [Stock] = StockRepository.seedData
     private(set) var connectionState: ConnectionState = .disconnected
     var connectionError: String?
     
     private var webSocketTask: WebSocketConnection?
-    private let session = URLSession(configuration: .default)
+    private var session: URLSession?
     private var updateTask: Task<Void, Never>?
+    private var networkTask: Task<Void, Never>?
     private let url = URL(string: "wss://ws.postman-echo.com/raw")!
     
     var selectedRegion: AppRegion {
@@ -40,24 +42,48 @@ final class StockRepository: StockRepositoryProtocol {
     private let webSocketFactory: ((URL) -> WebSocketConnection)?
     private let priceUpdateProvider: (([Stock]) -> PriceUpdateMessage?)?
     
+    private let networkMonitor: NetworkMonitoring?
+    
     init(webSocketFactory: ((URL) -> WebSocketConnection)? = nil,
-         priceUpdateProvider: (([Stock]) -> PriceUpdateMessage?)? = nil) {
+         priceUpdateProvider: (([Stock]) -> PriceUpdateMessage?)? = nil,
+         networkMonitor: NetworkMonitor? = nil) {
         self.webSocketFactory = webSocketFactory
         self.priceUpdateProvider = priceUpdateProvider
+        self.networkMonitor = networkMonitor
+        
+        super.init()
+        observeNetwork()
     }
     
     func startFeed() async {
         guard connectionState == .disconnected else { return }
+        
+        if let networkMonitor, !networkMonitor.isConnected {
+            connectionError = "No internet connection"
+            return
+        }
+        
         connectionError = nil
         connectionState = .connecting
         
-        let task: WebSocketConnection = webSocketFactory?(url) ?? session.webSocketTask(with: url)
+        let task: WebSocketConnection
+        
+        if let webSocketFactory {
+            task = webSocketFactory(url)
+        } else {
+            let newSession = URLSession(configuration: .default, delegate: self, delegateQueue: nil)
+            session = newSession
+            task = newSession.webSocketTask(with: url)
+        }
+        
         webSocketTask = task
         task.resume()
-        connectionState = .connected
         
         listenWebSocket(on: task)
-        startSimulatingUpdates()
+        
+        if webSocketFactory != nil {
+            connectionDidOpen(on: task)
+        }
     }
     
     func stopFeed() {
@@ -65,6 +91,10 @@ final class StockRepository: StockRepositoryProtocol {
         updateTask = nil
         webSocketTask?.cancel(with: .goingAway, reason: nil)
         webSocketTask = nil
+        
+        session?.finishTasksAndInvalidate()
+        session = nil
+        
         connectionState = .disconnected
     }
     
@@ -73,6 +103,33 @@ final class StockRepository: StockRepositoryProtocol {
     }
     
     // MARK: - Private Methods -
+    
+    private func observeNetwork() {
+        guard let networkMonitor else { return }
+        networkTask = Task { [weak self] in
+            for await isOnline in networkMonitor.updates {
+                guard let self else { return }
+                self.handleNetworkChange(isOnline: isOnline)
+            }
+        }
+    }
+    
+    private func handleNetworkChange(isOnline: Bool) {
+        guard !isOnline, connectionState != .disconnected else { return }
+        stopFeed()
+        connectionError = "Network connection lost."
+    }
+    
+    private func connectionDidOpen(on task: WebSocketConnection) {
+        guard webSocketTask === task, connectionState == .connecting else { return }
+        connectionState = .connected
+        startSimulatingUpdates()
+    }
+    
+    private func connectionDidClose(on task: WebSocketConnection) {
+        guard webSocketTask === task else { return }
+        stopFeed()
+    }
     
     private func listenWebSocket(on task: WebSocketConnection) {
         Task { [weak self] in
@@ -150,6 +207,20 @@ final class StockRepository: StockRepositoryProtocol {
                     }
                 }
             }
+        }
+    }
+}
+
+extension StockRepository: URLSessionWebSocketDelegate {
+    nonisolated func urlSession(_ session: URLSession, webSocketTask: URLSessionWebSocketTask, didOpenWithProtocol protocol: String?) {
+        Task { @MainActor in
+            self.connectionDidOpen(on: webSocketTask)
+        }
+    }
+    
+    nonisolated func urlSession(_ session: URLSession, webSocketTask: URLSessionWebSocketTask, didCloseWith closeCode: URLSessionWebSocketTask.CloseCode, reason: Data?) {
+        Task { @MainActor in
+            self.connectionDidClose(on: webSocketTask)
         }
     }
 }
