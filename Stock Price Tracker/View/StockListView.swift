@@ -80,7 +80,7 @@ struct StockListView: View {
                 }
                 .listStyle(PlainListStyle())
                 .navigationDestination(for: String.self) { symbol in
-                    StockDetailView(viewModel: StockDetailViewModel(symbol: symbol, repository: repository))
+                    StockDetailView(symbol: symbol, repository: repository)
                 }
             }
             .navigationTitle(LanguageHelper.stocksAppTitle)

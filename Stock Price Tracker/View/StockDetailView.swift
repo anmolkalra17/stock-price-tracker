@@ -8,7 +8,11 @@
 import SwiftUI
 
 struct StockDetailView: View {
-    var viewModel: StockDetailViewModel
+    @State private var viewModel: StockDetailViewModel
+    
+    init(symbol: String, repository: StockRepositoryProtocol) {
+        _viewModel = State(wrappedValue: StockDetailViewModel(symbol: symbol, repository: repository))
+    }
     
     var body: some View {
         ScrollView {

@@ -96,6 +96,7 @@ struct MarketHoursManager {
         let weekday = calendar.component(.weekday, from: date)
         if weekday == 1 || weekday == 7 { // Weekend
             status = .closed
+            return LanguageHelper.marketClosed
         }
         
         let hour = calendar.component(.hour, from: date)

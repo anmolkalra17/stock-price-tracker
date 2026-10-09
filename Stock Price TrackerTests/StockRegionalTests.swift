@@ -40,7 +40,7 @@ final class StockRegionalTests: XCTestCase {
     
     func testMarketHoursStatusForWeekendAndWeekdaySessions() {
         let saturday = date(2026, 10, 3, 11, 0, in: "America/New_York")
-        XCTAssertEqual(MarketHoursManager.status(for: .usEast, date: saturday), LanguageHelper.marketOpen)
+        XCTAssertEqual(MarketHoursManager.status(for: .usEast, date: saturday), LanguageHelper.marketClosed)
         
         XCTAssertEqual(MarketHoursManager.status(for: .usEast, date: date(2026, 10, 5, 5, 0, in: "America/New_York")), LanguageHelper.marketPre)
         XCTAssertEqual(MarketHoursManager.status(for: .usEast, date: date(2026, 10, 5, 9, 29, in: "America/New_York")), LanguageHelper.marketPre)
